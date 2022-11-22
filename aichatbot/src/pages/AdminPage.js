@@ -92,50 +92,50 @@ function AdminPage({setOne, setTwo, setThr, setFur, setFiv, setSix, setSev, setE
           <div class="flex  text-xl mb-3 ml-5 ">
             <div class="mr-3 ">주문</div>
             <input class="mr-3 mt-2 " type='checkbox' checked={sel1} onChange={e => sel1Set(!sel1)}/>
-            <input class="rounded-xl text-lg" type='text' value={var1} onChange={e => var1Set(e.target.value)}></input>
+            <input class="rounded-xl text-lg w-4/5" type='text' value={var1} onChange={e => var1Set(e.target.value)}></input>
           </div>
           <div class="flex  text-xl mb-3 ml-5 ">
             <div class="mr-3 ">제품</div>
             <input class="mr-3 mt-2 " type='checkbox' checked={sel2} onChange={e => sel2Set(!sel2)}/>
-            <input class="rounded-xl text-lg" type='text' value={var2} onChange={e => var2Set(e.target.value)}></input>
+            <input class="rounded-xl text-lg w-4/5" type='text' value={var2} onChange={e => var2Set(e.target.value)}></input>
           </div>
           <div class="flex  text-xl mb-3 ml-5 ">
             <div class="mr-3 ">배송</div>
             <input class="mr-3 mt-2 "  type='checkbox' checked={sel3} onChange={e => sel3Set(!sel3)}/>
-            <input class="rounded-xl  text-lg" type='text' value={var3} onChange={e => var3Set(e.target.value)}></input>
+            <input class="rounded-xl  text-lg w-4/5" type='text' value={var3} onChange={e => var3Set(e.target.value)}></input>
           </div>
           <div class="flex  text-xl mb-3 ml-5 ">
             <div class="mr-3 ">예약</div>
             <input class="mr-3 mt-2 "  type='checkbox' checked={sel4} onChange={e => sel4Set(!sel4)}/>
-            <input class="rounded-xl  text-lg" type='text' value={var4} onChange={e => var4Set(e.target.value)}></input>
+            <input class="rounded-xl  text-lg w-4/5" type='text' value={var4} onChange={e => var4Set(e.target.value)}></input>
           </div>
           <div class="flex  text-xl mb-3 ml-5 ">
             <div class="mr-3 ">매장</div>
             <input class="mr-3 mt-2 "  type='checkbox' checked={sel5} onChange={e => sel5Set(!sel5)}/>
-            <input class="rounded-xl  text-lg" type='text' value={var5} onChange={e => var5Set(e.target.value)}></input>
+            <input class="rounded-xl  text-lg w-4/5" type='text' value={var5} onChange={e => var5Set(e.target.value)}></input>
           </div>
           <div class="flex  text-xl mb-3 ml-5 ">
             <div class="mr-3 ">교환/환불/반품</div>
             <input class="mr-3 mt-2 "  type='checkbox' checked={sel6} onChange={e => sel6Set(!sel6)}/>
-            <input class="rounded-xl text-lg " type='text' value={var6} onChange={e => var6Set(e.target.value)}></input>
+            <input class="rounded-xl text-lg w-4/6" type='text' value={var6} onChange={e => var6Set(e.target.value)}></input>
           </div>
           <div class="flex  text-xl mb-3 ml-5 ">
             <div class="mr-3 ">구매</div>
             <input class="mr-3 mt-2 "  type='checkbox' checked={sel7} onChange={e => sel7Set(!sel7)}/>
-            <input class="rounded-xl text-lg " type='text' value={var7} onChange={e => var7Set(e.target.value)}></input>
+            <input class="rounded-xl text-lg w-4/5" type='text' value={var7} onChange={e => var7Set(e.target.value)}></input>
           </div>
           <div class="flex  text-xl mb-3 ml-5 ">
             <div class="mr-3 ">결제</div>
             <input class="mr-3 mt-2 "  type='checkbox' checked={sel8} onChange={e => sel8Set(!sel8)}/>
-            <input class="rounded-xl text-lg " type='text' value={var8} onChange={e => var8Set(e.target.value)}></input>
+            <input class="rounded-xl text-lg w-4/5" type='text' value={var8} onChange={e => var8Set(e.target.value)}></input>
           </div>
           <div class="flex  text-xl mb-3 ml-5 ">
-            <div class="mr-3 ">분류 오류 발생 시</div>
-            <input class="rounded-xl text-lg " type='text' value={var9} onChange={e => var9Set(e.target.value)}></input>
+            <div class="mr-3 ">오류 발생 시</div>
+            <input class="rounded-xl text-lg w-4/5" type='text' value={var9} onChange={e => var9Set(e.target.value)}></input>
           </div>
           <div class="flex  text-xl mb-3 ml-5 ">
             <div class="mr-3 ">초기 메세지</div>
-            <input class="rounded-xl text-lg " type='text' value={var10} onChange={e => var10Set(e.target.value)}></input>
+            <input class="rounded-xl text-lg w-4/5" type='text' value={var10} onChange={e => var10Set(e.target.value)}></input>
           </div>
         </div>
         <div class="flex justify-center absolute inset-x-0 bottom-0">

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const axiosPost = async () => {
+export const axiosPost = async (input) => {
   const open = {
     "version": "v2",
     "userId": "U47b00b58c90f8e47428af8b7bddcda3d12",
@@ -8,9 +8,10 @@ export const axiosPost = async () => {
     "timestamp": 12345678,
     "bubbles": [ {
     "type": "text",
-    "data" : { "description" : "제품 가격이 얼마인가요?" } } ],
+    "data" : { "description" : input } } ],
     "event": "send"
   }
+
   const HmacSHA256 = require('crypto-js/hmac-sha256');
   const EncBase64 = require('crypto-js/enc-base64');
   const signatureHeader = HmacSHA256(JSON.stringify(open), 'Z2N3d3VzelNKRUxmUFhmVnlvdlFxVnRGamZTTXd3Q3k=').toString(EncBase64);
@@ -23,8 +24,10 @@ export const axiosPost = async () => {
     headers : header,
     withCredentials : false
   });
-
-  return data;
+  console.log(data);
+  const type = data.data.conversation.scenarioName 
+  console.log(type);
+  return type;
 };
 
 

@@ -1,9 +1,13 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { axiosPost } from '../axios';
+
 function AdminPage() {
   const navigate = useNavigate()
-  const goMain = () => {
-    navigate("/");
+  const goMain = async () => {
+    const data = await axiosPost()
+    console.log(data)
+    //navigate("/");
   }
 
   return (

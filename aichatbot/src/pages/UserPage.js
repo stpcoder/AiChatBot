@@ -7,12 +7,40 @@ function UserPage() {
     navigate("/");
   }
 
+  const chatList = [{user : 0, text : '환영합니다'}, {user : 1, text : '반갑구만'}]
+
   return (
     <div class='bg-[#202020] h-screen flex justify-center '>
-      <div class="bg-[#706f6f] h-4/5 w-1/5 align-middle m-auto rounded-2xl pb-2">
-        <button class="text-lg ml-2 hover:text-white" onClick={goMain}>{`<- 메인 페이지`}</button>
-
+      <div class="flex flex-col flex-grow h-4/5 m-auto w-1/5 max-w-xl bg-white shadow-xl rounded-lg overflow-hidden">
+        <div>
+          <button onClick={goMain} class="hover:text-gray-300 ml-2 text-sm">{`< 메인페이지 돌아가기`}</button>
+        </div>
+        <div class="flex flex-col flex-grow h-0 p-4 overflow-auto">
+        {chatList.map((chat) => (
+          chat.user === 0 ? (
+          <div class="flex w-full mt-2 space-x-3 max-w-xs">
+            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300"></div>
+              <div>
+              <div class="bg-gray-300 p-3 rounded-r-lg rounded-bl-lg">
+                <p class="text-sm">{chat.text}</p>
+              </div>
+            </div>
+          </div>) : (          
+          <div class="flex w-full mt-2 space-x-3 max-w-xs ml-auto justify-end">
+            <div>
+              <div class="bg-blue-600 text-white p-3 rounded-l-lg rounded-br-lg">
+                <p class="text-sm">{chat.text}</p>
+              </div>
+            </div>
+            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300"></div>
+          </div>)
+        ))}
+        </div>
         
+        <div class="bg-gray-300 p-4">
+          <input class="flex items-center h-10 w-full rounded px-3 text-sm" type="text" placeholder="글을 입력해주세요"/>
+        </div>
+
       </div>
     </div>
   )

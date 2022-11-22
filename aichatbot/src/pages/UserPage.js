@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { axiosPost } from '../axios';
+import Loading from '../Spinner';
 
 function UserPage() {
   const [input, setInput] = useState("");
   const [chatList, setChatList] = useState([]);
+  const [load, setLoading] = useState(false);
   const navigate = useNavigate()
   const goMain = () => {
     navigate("/");
@@ -12,15 +15,25 @@ function UserPage() {
     setInput(e.target.value);
   }
 
-  const sendMsg = () => {
-    console.log(input);
-    
-    setInput("");
+  const getMsg = (input) => {
+    // const answer = await axiosPost();
+    // setLoading(false)
+    // return answer
   }
 
-  // const chatList = [{user : 0, text : '환영합니다'}, {user : 1, text : '반갑구만'}]
+  const sendMsg = async () => {
+    console.log(input);
+    setLoading(true);
+    let newList = [...chatList]
+    newList = newList.concat({user : 1, text : input})
 
-  
+    //const result = getMsg(input)
+    //newList.concat({user : 0, text : result})
+
+    setChatList(newList);
+    setInput("");
+  }
+  // const chatList = [{user : 0, text : '환영합니다'}, {user : 1, text : '반갑구만'}]  
 
   return (
     <div class='bg-[#202020] h-screen flex justify-center '>
@@ -56,6 +69,7 @@ function UserPage() {
         </div>
 
       </div>
+      {load && <Loading/> }
     </div>
   )
 }

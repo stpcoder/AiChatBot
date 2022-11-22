@@ -20,7 +20,7 @@ function Routing() {
   return (
     <Routes>
       <Route path = "/" element = {<MainPage/>} />
-      <Route path = "/admin" element = {<AdminPage setOne={setOne} setTwo={setTwo} setThr={setThr} setFur={setFur} setFiv={setFiv} setSiz={setSix} setSev={setSev} setEig={setEig} setErr={setErr} setInit={setInit}/>} />
+      <Route path = "/admin" element = {<AdminPage setOne={setOne} setTwo={setTwo} setThr={setThr} setFur={setFur} setFiv={setFiv} setSix={setSix} setSev={setSev} setEig={setEig} setErr={setErr} setInit={setInit}/>} />
       <Route path = "/user" element = {<UserPage one={one} two={two} thr={thr} fur={fur} fiv={fiv} six={six} sev={sev} eig={eig} err={err} init={init} />} />
     </Routes>
   )

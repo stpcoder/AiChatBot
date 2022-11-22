@@ -42,50 +42,50 @@ function UserPage({one, two, thr, fur, fiv, six, sev, eig, init, err}) {
 
     const result = await getMsg(input)
     console.log(result);
-    if (result == "주문") {
-      if (one != "") {
+    if (result === "주문") {
+      if (one !== "") {
         newList = newList.concat({user : 0, text : one})
       } else {
         newList = newList.concat({user : 0, text : err})
       }
-    } else if (result == "제품") {
-      if (two != "") {
+    } else if (result === "제품") {
+      if (two !== "") {
         newList = newList.concat({user : 0, text : two})
       } else {
         newList = newList.concat({user : 0, text : err})
       }
-    } else if (result == "배송") {
-      if (thr != "") {
+    } else if (result === "배송") {
+      if (thr !== "") {
         newList = newList.concat({user : 0, text : thr})
       } else {
         newList = newList.concat({user : 0, text : err})
       }
-    } else if (result == "예약") {
-      if (fur != "") {
+    } else if (result === "예약") {
+      if (fur !== "") {
         newList = newList.concat({user : 0, text : fur})
       } else {
         newList = newList.concat({user : 0, text : err})
       }
-    } else if (result == "매장") {
-      if (fiv != "") {
+    } else if (result === "매장") {
+      if (fiv !== "") {
         newList = newList.concat({user : 0, text : fiv})
       } else {
         newList = newList.concat({user : 0, text : err})
       }
-    } else if (result == "교환") {
-      if (six != "") {
+    } else if (result === "교환") {
+      if (six !== "") {
         newList = newList.concat({user : 0, text : six})
       } else {
         newList = newList.concat({user : 0, text : err})
       }
-    } else if (result == "구매") {
-      if (sev != "") {
+    } else if (result === "구매") {
+      if (sev !== "") {
         newList = newList.concat({user : 0, text : sev})
       } else {
         newList = newList.concat({user : 0, text : err})
       }
-    } else if (result == "결제") {
-      if (eig != "") {
+    } else if (result === "결제") {
+      if (eig !== "") {
         newList = newList.concat({user : 0, text : eig})
       } else {
         newList = newList.concat({user : 0, text : err})

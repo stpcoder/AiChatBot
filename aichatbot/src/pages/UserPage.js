@@ -1,13 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 function UserPage() {
+  const [input, setInput] = useState("");
+  const [chatList, setChatList] = useState([]);
   const navigate = useNavigate()
   const goMain = () => {
     navigate("/");
   }
+  const inputChg = (e) => {
+    setInput(e.target.value);
+  }
 
-  const chatList = [{user : 0, text : '환영합니다'}, {user : 1, text : '반갑구만'}]
+  const sendMsg = () => {
+    console.log(input);
+    
+    setInput("");
+  }
+
+  // const chatList = [{user : 0, text : '환영합니다'}, {user : 1, text : '반갑구만'}]
+
+  
 
   return (
     <div class='bg-[#202020] h-screen flex justify-center '>
@@ -37,8 +50,9 @@ function UserPage() {
         ))}
         </div>
         
-        <div class="bg-gray-300 p-4">
-          <input class="flex items-center h-10 w-full rounded px-3 text-sm" type="text" placeholder="글을 입력해주세요"/>
+        <div class="bg-gray-300 p-4 flex">
+          <input class="flex items-center h-10 w-5/6 rounded px-3 text-sm" type="text" placeholder="글을 입력해주세요" value={input} onChange={inputChg} />
+          <button class="bg-gray-200 w-1/6 ml-2 text-center" onClick={sendMsg}>보내기</button>
         </div>
 
       </div>

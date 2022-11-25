@@ -14,8 +14,9 @@
 
 
 -----
+<div align='center'>
 ![image.png](1.png)
-
+</div>
 # 목차
 ------
 1. [프로젝트 개요](#🧐-1.-프로젝트-개요)
@@ -48,21 +49,21 @@
 소상공인들이 쉽게 이용할 수 있도록, **간단히 구현**하였으며 대화가 이뤄지는 방식까지 보여주기 위해 <br/>관리자 페이지와 고객용 페이지를 **한 번에 확인이 가능하도록 구현**했습니다. <br/>
 
 ## **메인 페이지**
-
+<div align='center'>
 ![image.png](2.png)
-
+</div>
 메인 페이지에서 **관리자 기능**과 **챗봇 화면**으로 이동할 수 있습니다
 
 ## **관리자 페이지**
-
+<div align='center'>
 ![image.png](3.png)
-
+</div>
 NLU 모델에서 학습시킨 주문, 제품, 배송, 예약, 매장, 교환/환불/반품, 구매, 결제 등의 **주제로**<br/> **질문 입력 시**, **원하는 대답을 출력**할 수 있습니다.
 
 ## **고객용 페이지**
-
+<div align='center'>
 ![image.png](22.png)
-
+</div>
 관리자 페이지에서 설정한 질문의 주제별 대답을 바탕으로 **원활한 질의응답이 가능**하며, <br/>각 주제에 **해당하는 대답을 얻을 수 있습니다.**
 
 # 🎮 3. 사용 방법
@@ -111,8 +112,9 @@ NLU 모델에서 학습시킨 주문, 제품, 배송, 예약, 매장, 교환/환
 
 사용한 데이터는 AiHub의 [소상공인 고객 주문 질의-응답 텍스트](https://aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=realm&dataSetSn=102) 로 콜센터와 전화상담 등 **음성을 기록하여 텍스트로** 정리하여 구현한 데이터셋입니다. 약 **500만건 이상의 충분한 데이터** 를 갖고 있어 이 데이터를 선정했습니다. <br/>
 
-
+<div align='center'>
 ![image.png](4.png)
+</div>
 각 데이터는 위에 사진처럼 크게 **발화자/발화문 그리고 발화문을 나누는 카테고리**로 이루어져 있습니다. 이 중 챗봇을 구현하기 위해서는 해당하는 질문에 대한 대답이 필요한 것이므로, **발화문과 인텐트만을 이용**하도록 전처리했습니다. <br/><br/>
 또한, 인텐트 부분을 보면 '배송_비용_질문' 과 같이 **총 3개로 인텐트가 분류**되어 있습니다. 각 부분별로 학습해야할 발화문의 종류가 늘어나므로, 인텐트를 기준으로 **데이터를 총 3 종류로 분류**하여 **각 모델의 데이터를 제작**했습니다.
 <br/><br/>
@@ -134,8 +136,9 @@ NLU 모델에서 학습시킨 주문, 제품, 배송, 예약, 매장, 교환/환
 각 데이터는 이용자의 질문 주제를 파악하기 위해 이용됩니다. 챗봇 대화 시나리오 작성 시 **첫 번째 데이터를 학습한 인공지능의 경우** 발화자의 **가장 큰 주제를 분류**할 수 있도록 합니다. **두 번째 데이터**를 기반으로는 **발화의 세부 주제를 확인**할 수 있도록 하여 각 **세세한 상황에 따른 대답**을 작성할 수 있도록 합니다. 마지막으로는 **발화의 의도에 따라 대화의 진행 방식을 결정**할 수 있도록 총 3가지로 구성했습니다.
 
 <br/>
-
+<div align='center'>
 ![image.png](5.png)
+</div>
 첫번째 모델부터 세번째 모델에서 추출된 데이터까지의 라벨링 분포도를 차례로 첨부하였습니다. 각 class 별 데이터의 수를 균일하게 유지하도록 데이터 추출 전, 개수를 맞췄으며, 학습 시간 제약으로 인해 각 데이터별로 약 6만개만을 이용하였습니다.
 
 <br/>
@@ -156,25 +159,25 @@ KoBERT 를 기반으로 학습 모델을 구현하기 전, BERT 모델에 대해
 ### 이론적 배경
 ---
 ### BERT - Transformer
-
+<div align='center'>
 ![image.png](6.png)
-
+</div>
 BERT는 Transformer 모델의 구조를 여러 층으로 쌓아서 구성된 모델입니다. 위 사진이 바로 **Transformer 모델의 구조** 입니다. 좌측의 경우 **Encoder 역할을 하는 부분**과 **Decoder 역할을 하는 부분**으로 나뉘어 있으며, BERT 는 **Transformer 의 Encoder 만을 활용**하기 때문에, 왼쪽 구조만을 활용하게 됩니다.
 
 Transformer 는 위에서 설명했던 것처럼 **Encoder와 Decoder 로 구분**되어 있으며, 총 **n 개의 encoding layer** 를 갖고 있습니다. 각 Encoder 별로 sub layer 가 **Self Attention과 Feed Forward network 2가지**로 나뉘어 있습니다. **Self Attention (문장 내의 유사도를 구하기 위한 layer)** 가 바로 Transformer 모델의 **핵심적인 부분**으로 문장이 BERT 모델에 입력되면 이러한 **Self Attention layer** 들을 거치게 되어 **문맥을 포함한 하나의 문장**으로 출력되게 됩니다.
 
 ### BERT - Contextual Embedding
-
+<div align='center'>
 ![image.png](7.png)
-
+</div>
 위의 Transformer 를 통해 출력된 문장은 **문장의 문맥이 반영된 Embedding 으로 출력**이 됩니다. 각 단어들이 개별적인 객체로서 작용하는 것이 아닌, **서로가 연관된 단어 벡터로서 임베팅이 되어 출력**되게 됩니다.
 
 ### BERT - Self Attention
 
 우선 Attention 은 Query 를 기반으로 하여 제공된 Key 사이의 유사도를 구하여 각 유사도를 가중치로 사용하고 **Value를 구하게 됩니다.** 이렇게 구하게 된 **Value 들을 모두 가중합하여 반환**하는 것이 바로 **Attention** 입니다. 이러한 **Attention 을 본인에게 수행**하는 것이 **Self Attention** 입니다.
-
+<div align='center'>
 ![image.png](8.png)
-
+</div>
 위의 그림처럼, 문장에 대해 **Query, Key, Value vetor 들을 정의**하게 됩니다. 이 vector 들을 기반으로 가중치 행렬을 곱하여 vector을 획득하게 되고, **모든 vector 에 연산을 수행하여 Attention** 을 구할 수 있습니다. 이렇게 구해진 행렬을 기반으로 **일련의 연산**을 적용하고 **SoftMax 함수**를 활용하게 되면 **Attention Matrix** 를 구할 수 있게 됩니다.
 
 ### **BERT - WordPiece**
@@ -201,19 +204,19 @@ BERT를 기반으로 구현한 **KoBERT 또한 마찬가지로 수백만개의 �
 
 
 
-
+<div align='center'>
 ![image.png](9.png)
-
+</div>
 각 모델의 정확도는 **79% / 64% / 73%** 으로 두번째 모델을 제외하고 **대부분 정확도가 높은 편**에 속했습니다. 두번째 모델의 경우 class 수가 약 60개로 분류할 데이터가 많았던 반면 **각 데이터별로 발화문의 개수가 충분치 않아서** 데이터의 수를 균일하게 맞추다 보니 일부 **정확도가 떨어지는 경향**이 있었으나 60% 이상으로 준수한 성능을 보였습니다.
 
 이후, 예측 함수를 구현하여 모델의 실제 예측 값을 출력하였습니다. 실제 문장을 읽었을 때, 거의 대부분의 내용이 라벨링한 결과에 맞아 떨어지는 모습을 확인할 수 있었습니다.
-
+<div align='center'>
 ![image.png](10.png)
 
 ![image.png](11.png)
 
 ![image.png](12.png)
-
+</div>
 이후 모델을 **pt 파일로 저장**하고 3가지 데이터를 기반으로 **3개의 모델을 구축**하였습니다.
 
 >자세한 학습용 코드는 **`프로젝트 폴더 > 3. AI 구현 > make first/second/third NLUMODEL.ipynb`**에서 확인할 수 있습니다 <br/>
@@ -222,13 +225,13 @@ BERT를 기반으로 구현한 **KoBERT 또한 마찬가지로 수백만개의 �
 ## 5-3. API 배포
 
 학습된 모델을 배포하기 위해, 여러 상황을 알아보던 중, 이용하고 있는 사지방 특성상 제약이 많아 Docker를 활용한 서버 구현이 불가능했습니다. 여러 방법을 찾아보던 중 AI 모듈을 연결해주는 **Naver Cloud** 에서 제공하는 **Api GateWay**를 활용하였습니다.
-
+<div align='center'>
 ![image.png](13.png)
-
+</div>
 학습된 AI 모듈을 Endpoint로 활용하여 API에 연결하였으며, **Naver Cloud Api Gateway** 에서 생성해주는 **Invoke URL** 을 활용하여 **Front-end 와 Ai를 연결**할 수 있었습니다. 모듈을 구현하고 이를 **Endpoint 연결** 이후, Cloud 에서 발급되는 **Key와 URL을 기반으로 통신에 활용**했습니다.
-
+<div align='center'>
 ![image.png](14.png)
-
+</div>
 또한, Swagger 기반 **API Docs**를 생성하여 API 와 통신 시 활용하였습니다. **RESTFUL API** 를 생성하여 통신에 활용하였으며, 기본 Invoke URL 에 post method를 통해 메세지를 주고 response body에 응답에 해당하는 메세지를 **response**로 돌려주도록 구현했습니다.
 
 ## 5-4. 웹사이트 제작
@@ -248,37 +251,38 @@ BERT를 기반으로 구현한 **KoBERT 또한 마찬가지로 수백만개의 �
 
 
 **세번째 페이지**는 고객용 페이지로 마찬가지로 다른 페이지들과 유사한 디자인을 사용합니다. 메인 페이지로 돌아갈 수 있는 **버튼**과 메세지를 입력하는 칸, 채팅 보내기 **버튼**으로 구성되어 있습니다. 보낸 채팅은 **보라색 계열**로 강조되어 표시되고 받은 채팅은 **회색계열**로 표현되게 디자인했습니다.
-
+<div align='center'>
 ![image.png](15.png)
-
+</div>
 
 ### 코드 구현
 ---
 사이버지식정보방에서 구현하기 위해 github에 코드를 저장하고 **codespace**를 활용하여 프론트엔드를 구현하였습니다. <br/>
 코드는 크게 **`Index -> App -> Routing -> AdminPage / UserPage / MainPage`** 로 구성되어 있습니다.
+<div align='center'>
 ![image.png](16.png)
-
+</div>
 우선 **`index.js`** 의 경우 최상단에 위치해있으며, root 디렉토리에 App 을 씌워주며 React 앱이 실행되도록 합니다.
 <br/>**`App.js`** 의 경우 react-router-dom 을 사용하기 위해 BrowserRouter를 활용하여 Routing element를 감싸주는 역할을 하고 있습니다.
-
+<div align='center'>
 ![image.png](17.png)
-
+</div>
 **`Routing.js`** 의 경우 크게 두가지 역할을 담당하고 있습니다. 우선 기존에 발화문의 주제를 8가지 타입으로 저장한 것에 맞추어 각 발화문의 주제별 응답을 useState를 통해 **state로 설정**했습니다. 설정된 state들을 **admin page**와 **user page**에 각각 전달하여 admin 페이지에서는 이 값을 설정하고, user page에서는 이 state의 값을 받는 역할을 수행하고 있습니다. 두번째로 각 페이지를 **routing 해주는 역할**을 하고 있습니다. Router tag 속에 묶인 route 태그에서 element로 각 페이지 component를 불러와서 **각 path로 component들을 할당**해주는 역할을 하고 있습니다.
-
+<div align='center'>
 ![image.png](18.png)
-
+</div>
 **`axios.js`** 에서는 **Axios**를 바탕으로 API와 통신을 진행하는 axiosPost 함수를 구현하였습니다. **Naver Cloud API Gateway** 통신시 사용되는 **Key와 Invoke URL를 기반**으로 통신을 진행합니다. **Response Body**의 형식과 **Header**의 형식을 맞추어 통신을 진행하며, Header의 경우 **Hmac-sha256 기반의 암호화**를 진행했습니다.
-
+<div align='center'>
 ![image.png](19.png)
-
+</div>
 각 페이지별 고유한 component들을 생성하여 이를 Routing에 활용하고 있습니다. 페이지별 **디자인의 통일성을 유지**하는 것에 집중했으며, **Navigate**를 활용하여 페이지 이동을 구현했습니다. 또한 Routing 에서 전달된 **state들을 활용**하였습니다.
-
+<div align='center'>
 ![image.png](20.png)
-
+</div>
 프로젝트에 설치되고 **사용된 패키지**들은 다음과 같습니다
-
+<div align='center'>
 ![image.png](21.png)
-
+</div>
 ### 배포
 ---
 react **firebase-tools**를 활용하여 **firebase single page** 기반으로 deploy 했습니다. <br/>개인 페이지로 hosting 했으며, yarn 을 통해 **build 된 index.html**을 기반으로 배포했습니다. <br/>

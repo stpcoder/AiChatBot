@@ -421,6 +421,10 @@ react **firebase-tools**를 활용하여 **firebase single page** 기반으로 d
 
 ## 개발자 연락처
 
+<div align='center'>
+
 <a href="https://github.com/stpcoder">
 <img src="https://img.shields.io/badge/stpcoder-655ced?style=social&logo=github"/></a>
 <div width="300" align="center"><a href="mailto:thbrian@postech.ac.kr"><img src="https://img.shields.io/static/v1?label=&message=thbrian@postech.ac.kr&color=lightgray&style=flat-square&logo=gmail"></div>
+    
+    </div>

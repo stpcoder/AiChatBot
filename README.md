@@ -4,18 +4,17 @@
 ## 챗봇이 필요한 모든 자영업자들, 상인들을 위한
 
 # 모두의 대화 👂
-
-<br/>
-
-**🎉군 장병 맞춤형 SW AI 역량강화 온라인 교육 - 프로젝트 사례대회 1등 수상작🎉**
-
 <br/>
 
 <a href='https://drive.google.com/drive/folders/152ueF9PU23GK4OtZaoypfC99-3qLsup5?usp=share_link'><img src='https://img.shields.io/badge/Project Folder-black?style=for-the-badge'></a>
 <a href='https://chatingaiforeveryone.web.app/'><img src='https://img.shields.io/badge/DEMO SITE-white?style=for-the-badge'></a>
 
 ### 프로젝트 데이터는 Project Folder / 데모 웹사이트는 Demo Site 에서 확인 가능합니다
+
+
+**🎉군 장병 맞춤형 SW AI 역량강화 온라인 교육 - 프로젝트 사례대회 1등 수상작🎉**
 </div>
+
 
 
 -----
